@@ -25,7 +25,7 @@ Route::get('/project/{id}', 'App\Http\Controllers\ProjectController@getProject')
 //route for updating project
 Route::put('/project', 'App\Http\Controllers\ProjectController@update');
 //route for getting user profile info, and related projects
-Route::get('/user', 'App\Http\Controllers\UserController@index');
+Route::get('/user', 'App\Http\Controllers\UserController@index')->middleware('auth');
 
 Auth::routes();
 

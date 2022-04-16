@@ -11,6 +11,10 @@ use App\Models\Project_User;
 
 class ProjectController extends Controller
 {
+    ///use auth middleware to protect routes
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function create(){
         $users=User::where('id','!=',auth()->user()->id)->get();
         return view('projects.create',['users'=>$users]);
